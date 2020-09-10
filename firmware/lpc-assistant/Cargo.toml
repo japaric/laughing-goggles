@@ -1,0 +1,38 @@
+[package]
+authors = ["Jorge Aparicio <jorge.aparicio@ferrous-systems.com>"]
+name = "lpc-assistant"
+edition = "2018"
+version = "0.1.0"
+
+[dependencies.defmt]
+git = "https://github.com/knurling-rs/defmt"
+branch = "main"
+
+[dependencies.defmt-rtt]
+git = "https://github.com/knurling-rs/defmt"
+branch = "main"
+
+[dependencies.panic-probe]
+git = "https://github.com/knurling-rs/probe-run"
+branch = "main"
+features = ["print-defmt"]
+
+[dependencies]
+cortex-m = "0.6.3"
+cortex-m-rt = "0.6.12"
+lpc8xx-hal = "0.8.1"
+
+[features]
+# set logging levels here
+default = [
+  "defmt-default",
+  "lpc8xx-hal/845-rt",
+]
+
+# do NOT modify these features
+defmt-default = []
+defmt-trace = []
+defmt-debug = []
+defmt-info = []
+defmt-warn = []
+defmt-error = []
